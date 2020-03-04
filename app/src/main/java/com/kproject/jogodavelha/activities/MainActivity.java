@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+	setContentView(R.layout.activity_main);
         initializePositions();
         actionBar = getSupportActionBar();
         showDialogGameOptions();
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         tvPositions[6] = findViewById(R.id.tvPosition7);
         tvPositions[7] = findViewById(R.id.tvPosition8);
         tvPositions[8] = findViewById(R.id.tvPosition9);
-	}
+    }
     
     public void onClickPosition(View view) {
         if (!isComputerVsComputer && !gameFinished) {
@@ -118,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
                     isComputerVsComputer = false;
                     actionBar.setSubtitle("Modo: Humano vs Humano");
                 } else if (position == 1) {
-					isHumanVsHuman = false;
-					isComputerVsComputer = false;
-					actionBar.setSubtitle("Modo: Humano vs CPU");
+		    isHumanVsHuman = false;
+		    isComputerVsComputer = false;
+		    actionBar.setSubtitle("Modo: Humano vs CPU");
                 } else if (position == 2) {
                     isHumanVsHuman = false;
                     isComputerVsComputer = true;
@@ -184,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
         
         return false;
     }
-    
     
     // Jogada do computador no modo Humano vs Computador
     private void computerPlay() {
