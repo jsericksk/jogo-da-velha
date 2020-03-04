@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-	setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         initializePositions();
         actionBar = getSupportActionBar();
         showDialogGameOptions();
@@ -89,20 +89,24 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             } else {
+                // Humano vs Computador
                 for (int i = 0; i < 9; i++) {
-                    if (id == tvPositions[i].getId() && tvPositions[i].getText().toString().isEmpty()) {
-                        tvPositions[i].setText("X");
-                        tvPositions[i].setTextColor(Color.BLACK);
-                        if (isWinnerOrTied(1)) {
+                    if (id == tvPositions[i].getId()) {
+                        if (tvPositions[i].getText().toString().isEmpty()) {
+                            tvPositions[i].setText("X");
+                            tvPositions[i].setTextColor(Color.BLACK);
+                            if (isWinnerOrTied(1)) {
+                                return;
+                            }
+                        } else {
+                            // Evita uma jogada do computador, pois a jogada humana foi inválida
                             return;
                         }
                         break;
                     }
                 }
                 
-                if (!isHumanVsHuman) {
-                    computerPlay();
-                }
+                computerPlay();
             }
         }
     }
@@ -118,9 +122,9 @@ public class MainActivity extends AppCompatActivity {
                     isComputerVsComputer = false;
                     actionBar.setSubtitle("Modo: Humano vs Humano");
                 } else if (position == 1) {
-		    isHumanVsHuman = false;
-		    isComputerVsComputer = false;
-		    actionBar.setSubtitle("Modo: Humano vs CPU");
+                    isHumanVsHuman = false;
+                    isComputerVsComputer = false;
+                    actionBar.setSubtitle("Modo: Humano vs CPU");
                 } else if (position == 2) {
                     isHumanVsHuman = false;
                     isComputerVsComputer = true;
